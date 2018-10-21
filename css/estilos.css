@@ -139,7 +139,6 @@ section#ofertas {
   box-shadow: 7px 6px 19px -7px rgba(0,0,0,0.75);
   border-radius: 0.5%;
   display: inline-block;
-  cursor: pointer;
 }
 .ofertas:hover {
   transform: scale(1.1);
@@ -163,7 +162,6 @@ box-shadow: 7px 6px 64px -4px rgba(0,0,0,0.75);
   padding-left: 18px;
 }
 .ofertas > a {
-  border: 1px solid blue;
   background-color: #023;
   text-decoration: none;
   color: white;
@@ -172,6 +170,8 @@ box-shadow: 7px 6px 64px -4px rgba(0,0,0,0.75);
   width: 150px;
   height: 20px;
   line-height: 5;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 section#items > form {
@@ -356,6 +356,7 @@ section#contacto >  form > button {
   border-radius: 5px;
   border: 0.5px solid #0003;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 section#contacto > div {
   margin-top: 20px;
@@ -400,6 +401,7 @@ footer a {
   padding: 5px;
   margin: 0 auto;
   transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 #social > div:hover {
   transform: scale(1.1);
