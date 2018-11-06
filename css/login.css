@@ -1,0 +1,121 @@
+/* @import url('https://fonts.googleapis.com/css?family=Oswald|Raleway'); */
+
+*{
+ margin: 0px;
+ padding: 0px;
+}
+body{
+  overflow: hidden;
+  font-family: 'Oswald', sans-serif;
+
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Raleway', sans-serif;
+}
+
+section{
+  width: 50%;
+  height: 100vh;
+  float: left;
+}
+section:first-child{
+  background-image: url(../img/inicio.jpg);
+  background-size: 300% 100%;
+  background-position: 0 0;
+  animation: animacion 40s linear infinite;
+}
+@keyframes animacion {
+    0%{
+      background-position: 0 0:
+    }
+    50%{
+      background-position:-1000px 0;
+    }
+    100%{
+      background-position:-0 0;
+    }
+}
+h1{
+  color:#4d4d4d;
+  font-size: 3rem;
+  padding-left: 10%;
+  padding-top: 30%;
+    margin-left: 2.5%;
+}
+.buttons,.registro{
+  padding-left: 10%;
+  padding-top: 40px;
+  width: 90%;
+}
+.buttons button{
+  width: 40%;
+  height: 50px;
+  margin-left: 2.5%;
+  color:white;
+  display: inline-block;
+  border:none;
+}
+.buttons button:first-child{
+  background-color: #3b5998;
+}
+.buttons button:last-child{
+  background-color: #d62d20;
+}
+.registro button{
+  width: 82.5%;
+  background-color: #a21f0c;
+  color:white;
+  height: 50px;
+  border:none;
+  margin-left: 2.5%;
+}
+#alerta {
+  position: absolute;
+  width: 20%;
+  height: 350px;
+  background-color: white;
+  left: 40%;
+  top: 150px;
+  text-align: center;
+  z-index: 2;
+  display: none;
+  -webkit-box-shadow: -4px 10px 34px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: -4px 10px 34px -3px rgba(0,0,0,0.75);
+  box-shadow: -4px 10px 34px -3px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+#alerta input {
+  background-color: white;
+  border: 1px solid #555555aa;
+  border-radius: 5px;
+  width: 60%;
+}
+#alerta h2 {
+  margin-bottom: 20px;
+}
+#alerta fieldset {
+  border: none;
+}
+#alerta label {
+  display: block;
+}
+#alerta form   button {
+  background: white;
+  border: 1px solid #22222255;
+  margin-top: 25px;
+  background-color: #3b5998;
+  color: white;
+  border-radius: 5px;
+  width: 30%;
+  height: 25px;
+}
+
+#btnCerrar {
+  display: block;
+  float:right;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  margin-right: 2px;
+  cursor: pointer;
+}
