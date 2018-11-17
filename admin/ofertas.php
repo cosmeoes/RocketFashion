@@ -15,32 +15,23 @@
 
       </div>
       <div class="cols30">
-        <h3>Agregar productos</h3>
+        <h3>Agregar ofertas</h3>
         <form id="miForm">
             <fieldset>
-              <label for="name">Nombre</label>
-              <input type="text" name="" value="" id="name" onkeypress="quitarBorde(this)">
+              <label for="name">Producto</label>
+              <select onchange="quitarBorde(this)" class="" name="" id="cate">
+                <option value="-1">Selecciona un producto</option>
+                <option value="0">Producto 1</option>
+                <option value="1">Producto 2</option>
+              </select>
             </fieldset>
             <fieldset>
-              <label for="price">Precio</label>
+              <label for="price">Descuento</label>
               <input type="number" name="" id="price" onkeypress="quitarBorde(this)">
             </fieldset>
             <fieldset>
               <label for="img">Imagen</label>
               <input type="file" name="" value="" id="img" onchange="quitarBorde(this)">
-            </fieldset>
-            <fieldset>
-              <label for="stock">Stock</label>
-              <input type="number" name="" value="" onkeypress="quitarBorde(this)" id="stock">
-
-            </fieldset>
-            <fieldset>
-              <label for="cate">Categoria</label>
-              <select onchange="quitarBorde(this)" class="" name="" id="cate">
-                <option value="-1">Selecciona una categoria</option>
-                <option value="0">Categoria 1</option>
-                <option value="1">Categoria 2</option>
-              </select>
             </fieldset>
             <fieldset>
               <label for="desc">Descripcion</label>
@@ -63,7 +54,7 @@
         var inputs = document.querySelectorAll("fieldset > input, fieldset > textarea");
         var selects = document.querySelectorAll("fieldset > select");
         miForm.addEventListener("submit", function (e) {
-          for (let i = 0; i < inputs.length; i++) {
+          for (var i = 0; i < inputs.length; i++) {
             n = inputs[i];
             if(n.value.trim() == ''){
               n.style.border ="1px solid red";
