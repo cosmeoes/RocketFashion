@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['usario'])) {
+  header('Location: ../login.php?error=acceso denegado');
+}
+$datosSesion = $_SESSION['usario'];
+ ?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -10,7 +17,7 @@
     <?php include "./layouts/header.php" ?>
     <?php include "./layouts/sidebar.php" ?>
     <main>
-
+     <h2>Bienvenido <?php echo $datosSesion['Nombre'] . ' ' . $datosSesion['Ap']; ?></h2>
     </main>
 
   </body>

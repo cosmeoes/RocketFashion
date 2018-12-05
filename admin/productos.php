@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['usario'])) {
+  header('Location: ../login.php?error=acceso denegado');
+}
+$datosSesion = $_SESSION['usario'];
+include '../php/conexion.php';
+ ?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -16,34 +24,38 @@
       </div>
       <div class="cols30">
         <h3>Agregar productos</h3>
-        <form id="miForm">
+        <form id="miForm" action="../php/insprod.php" method="post" enctype="multipart/form-data" >
             <fieldset>
               <label for="name">Nombre</label>
-              <input type="text" name="" value="" id="name" onkeypress="quitarBorde(this)">
+              <input type="text" name="nombre" value="" id="name" onkeypress="quitarBorde(this)">
             </fieldset>
             <fieldset>
               <label for="price">Precio</label>
-              <input type="number" name="" id="price" onkeypress="quitarBorde(this)">
+              <input type="number" name="precio" id="price" onkeypress="quitarBorde(this)">
             </fieldset>
             <fieldset>
               <label for="img">Imagen</label>
-              <input type="file" name="" value="" id="img" onchange="quitarBorde(this)">
+              <input type="file" name="img" value="" id="img" onchange="quitarBorde(this)">
             </fieldset>
             <fieldset>
               <label for="stock">Stock</label>
-              <input type="number" name="" value="" onkeypress="quitarBorde(this)" id="stock">
+              <input type="number" name="stock" value="" onkeypress="quitarBorde(this)" id="stock">
 
             </fieldset>
             <fieldset>
               <label for="cate">Categoria</label>
-              <select onchange="quitarBorde(this)" class="" name="" id="cate">
-                <option value="0">Categoria 1</option>
-                <option value="1">Categoria 2</option>
+              <select onchange="quitarBorde(this)" class="" name="cate" id="cate">
+                <?php
+                $re=$db->query("select * from Categorias") or die($db->error);
+                while($f=$re->fetch_assoc()){
+                  echo '<option values="'.  $f['id'].'">'.$f['nombre'].'</option>';
+                }
+                 ?>
               </select>
             </fieldset>
             <fieldset>
               <label for="desc">Descripcion</label>
-              <textarea onkeypress="quitarBorde(this)" name="name" rows="8" cols="80" id="desc"></textarea>
+              <textarea onkeypress="quitarBorde(this)" name="desc" rows="8" cols="80" id="desc"></textarea>
             </fieldset>
             <fieldset>
               <button type="submit" name="button">
