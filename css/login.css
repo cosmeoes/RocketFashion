@@ -38,14 +38,15 @@ section:first-child{
 h1{
   color:#4d4d4d;
   font-size: 3rem;
-  padding-left: 10%;
   padding-top: 30%;
-    margin-left: 2.5%;
+  text-align: center;
 }
-.buttons,.registro{
-  padding-left: 10%;
+.buttons,.registro,.error-div{
   padding-top: 40px;
-  width: 90%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  text-align: center;
 }
 .buttons button{
   width: 40%;
@@ -118,4 +119,22 @@ h1{
   border: none;
   margin-right: 2px;
   cursor: pointer;
+}
+.error-div {
+  text-align: center;
+  color: #a21f0c;
+  font-size: 1.5rem;
+  padding-top: 5px;
+  margin-bottom: -20px;
+}
+
+.registro > form > input {
+  display: block;
+  margin: 0 auto;
+  width:50%;
+  margin-bottom: 10px;
+}
+.registro > form > button{
+  width:50%;
+  margin-left: 0;
 }

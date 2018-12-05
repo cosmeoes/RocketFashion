@@ -92,7 +92,7 @@ header > nav > h2 {
   line-height: 2;
 }
 aside {
-  width: 20%;
+  width: 10%;
   float: left;
   margin-top: 70px;
 
@@ -128,11 +128,60 @@ fieldset {
 .cols60 {
   display: inline-block;
   vertical-align: top;
-  width: 60%;
+  width: 65%;
 }
 .cols30 {
   display: inline-block;
   vertical-align: top;
   width: 30%;
   margin-left: 50px;
+}
+.datos {
+  width: 100%;
+  text-align: center;
+}
+.datos > thead > tr > td {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.datos td {
+  border: 1px solid black;
+  max-width: 300px;
+}
+.datos button {
+  width: 50px;
+  color: white;
+  background: #dc3545;
+  cursor: pointer;
+}
+
+.datos button:first-child {
+  background: #007bff;
+}
+#modal {
+  position: absolute;
+  width: 30%;
+  padding: 5px;
+  /* height: px; */
+  background-color: white;
+  left: 40%;
+  top: 150px;
+  text-align: center;
+  z-index: 2;
+  display: none;
+  -webkit-box-shadow: -4px 10px 34px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: -4px 10px 34px -3px rgba(0,0,0,0.75);
+  box-shadow: -4px 10px 34px -3px rgba(0,0,0,0.75);
+  border-radius: 5px;
+  display: none;
+}
+#modal input, #modal textarea {
+  padding: 0;
+}
+.error {
+  text-align: center;
+  color: #a21f0c;
+  width: 65%;
+  font-size: 1.5rem;
+  padding-top: 5px;
 }

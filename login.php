@@ -12,6 +12,18 @@
     </section>
     <section>
       <h1>Iniciar Sesión</h1>
+      <?php if(isset($_GET['error'])) { ?>
+          <div class='error-div'>
+            <b><?php echo $_GET['error']; ?></b>
+          </div>
+      <?php } ?>
+      <div class="registro">
+        <form action="./php/login.php" method="post">
+          <input type="text" name="email" value="" placeholder="Ingresar email">
+          <input type="password" name="pass" value="" placeholder="***">
+          <button type="submit" name="button" onclick="alerta()">Login</button>
+        </form>
+      </div>
 
       <div class="buttons">
         <button type="button" name="button">
@@ -23,6 +35,7 @@
 
       </div>
 
+
       <div class="registro">
         <?php if(isset($_GET['success'])) { ?>
           <div style="background:#007d0a; color:white;">
@@ -31,13 +44,7 @@
             Ahora puede iniciar sessión
           </div>
         <?php } ?>
-        <form action="./php/login.php" method="post">
-          <input type="text" name="email" value="" placeholder="Ingresar email">
-          <br>
-          <input type="password" name="pass" value="" placeholder="***">
-          <br>
-          <button type="submit" name="button" onclick="alerta()">LOGIN</button>
-        </form>
+
         <button type="button" onclick="alerta()" name="button">
           Registrar
         </button>
@@ -49,11 +56,7 @@
       </button>
       <h2>Registro:</h2>
       <form id="miForm" action="./php/registro.php" method="post">
-        <?php if(isset($_GET['error'])) { ?>
-            <div style="background-color: red">
-              <b>Error: </b><?php echo $_GET['error']; ?>
-            </div>
-        <?php } ?>
+
         <fieldset>
           <label for="name">Nombre:</label>
           <input type="text" name="name" value="" id="name" onkeyup="quitarBorde(this)">

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/login.css">
+  </head>
+  <body>
+    <section>
+
+    </section>
+    <section>
+      <h1>Iniciar Sesión</h1>
+      <div class="buttons">
+        <button type="button" name="button">
+          <i class="fab fa-facebook"></i> Facebook
+        </button>
+        <button type="button" name="button">
+          <i class="fab fa-google"></i> Google
+        </button>
+
+      </div>
+      <div class="registro">
+        <button type="button" onclick="alerta()" name="button">
+          Registrar
+        </button>
+      </div>
+    </section>
+    <div id="alerta">
+      <button type="button" id="btnCerrar">
+      <i class="fas fa-times"></i>
+      </button>
+      <h2>Registro:</h2>
+      <form id="miForm">
+        <fieldset>
+          <label for="name">Nombre:</label>
+          <input type="text" name="" value="" id="name">
+        </fieldset>
+        <fieldset>
+          <label for="ap">Apellido</label>
+          <input type="text" name="" value="" id="ap">
+        </fieldset>
+        <fieldset>
+          <label for="email">Email</label>
+          <input type="email" name="" value="" id="email">
+        </fieldset>
+        <fieldset>
+          <label for="pass">Password</label>
+          <input type="password" name="" value="" id="pass">
+        </fieldset>
+        <fieldset>
+          <label for="pass2">Confirmar password</label>
+          <input type="password" name="" value="" id="pass2">
+        </fieldset>
+        <fieldset>
+          <button type="submit" name="button" id="btnIngresar">Ingresar</button>
+        </fieldset>
+      </form>
+    </div>
+    <script type="text/javascript">
+      function alerta() {
+        var divAlerta = document.getElementById('alerta');
+        divAlerta.style = "display: block;";
+      }
+      document.getElementById('btnCerrar').addEventListener("click", function() {
+        document.getElementById('alerta').style = "display: none;";
+      });
+
+      var miForm = document.getElementById('miForm');
+      miForm.addEventListener("submit", function (e) {
+
+        var n = document.getElementById('name');
+        if(n.value == ''){
+          n.style.border ="1px solid red";
+          e.preventDefault();
+
+        }
+      });
+
+    </script>
+  </body>
+</html>
