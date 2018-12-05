@@ -5,6 +5,10 @@ if(!isset($_SESSION['usario'])) {
 }
   include './conexion.php';
 if(isset($_POST['nombre']) && isset($_POST['precio'])  && isset($_POST['stock'])  && isset($_POST['cate'])  && isset($_POST['desc'])) {
+  if(!is_numeric($_POST['stock']) || !is_numeric($_POST['precio'])) {
+    header("Location: ../admin/productos.php?error=El stock y precio deben ser valores numericos");
+    exit();
+  }
   $temp=explode(".",$_FILES['img']['name']);
   $extension = end($temp);
   $mime = $_FILES['img']['type'];
@@ -18,7 +22,7 @@ if(isset($_POST['nombre']) && isset($_POST['precio'])  && isset($_POST['stock'])
     $nombreFinal = $random1."_".$random2."_".$fecha.".".$extension;
     if(move_uploaded_file($_FILES['img']['tmp_name'], "../img/productos/".$nombreFinal)) {
       $db->query("insert into Productos values (0,'".$_POST['nombre']."',".$_POST['precio'].",'".$nombreFinal."',".$_POST['cate'].",'".$_POST['desc']."',".$_POST['stock'].")");
-      // echo $db->error;
+
       header("Location: ../admin/productos.php");
     } else {
       echo "ni maiz";
