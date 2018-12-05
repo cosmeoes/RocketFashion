@@ -1,11 +1,3 @@
-<?php
-session_start();
-if(!isset($_SESSION['usario'])) {
-  header('Location: ../login.php?error=acceso denegado');
-}
-$datosSesion = $_SESSION['usario'];
-include '../php/conexion.php';
- ?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -23,39 +15,27 @@ include '../php/conexion.php';
 
       </div>
       <div class="cols30">
-        <h3>Agregar productos</h3>
-        <form id="miForm" action="../php/insprod.php" method="post" enctype="multipart/form-data" >
+        <h3>Agregar ofertas</h3>
+        <form id="miForm">
             <fieldset>
-              <label for="name">Nombre</label>
-              <input type="text" name="nombre" value="" id="name" onkeypress="quitarBorde(this)">
-            </fieldset>
-            <fieldset>
-              <label for="price">Precio</label>
-              <input type="number" name="precio" id="price" onkeypress="quitarBorde(this)">
-            </fieldset>
-            <fieldset>
-              <label for="img">Imagen</label>
-              <input type="file" name="img" value="" id="img" onchange="quitarBorde(this)">
-            </fieldset>
-            <fieldset>
-              <label for="stock">Stock</label>
-              <input type="number" name="stock" value="" onkeypress="quitarBorde(this)" id="stock">
-
-            </fieldset>
-            <fieldset>
-              <label for="cate">Categoria</label>
-              <select onchange="quitarBorde(this)" class="" name="cate" id="cate">
-                <?php
-                $re=$db->query("select * from Categorias") or die($db->error);
-                while($f=$re->fetch_assoc()){
-                  echo '<option values="'.  $f['id'].'">'.$f['nombre'].'</option>';
-                }
-                 ?>
+              <label for="name">Producto</label>
+              <select onchange="quitarBorde(this)" class="" name="" id="cate">
+                <option value="-1">Selecciona un producto</option>
+                <option value="0">Producto 1</option>
+                <option value="1">Producto 2</option>
               </select>
             </fieldset>
             <fieldset>
+              <label for="price">Descuento</label>
+              <input type="number" name="" id="price" onkeypress="quitarBorde(this)">
+            </fieldset>
+            <fieldset>
+              <label for="img">Imagen</label>
+              <input type="file" name="" value="" id="img" onchange="quitarBorde(this)">
+            </fieldset>
+            <fieldset>
               <label for="desc">Descripcion</label>
-              <textarea onkeypress="quitarBorde(this)" name="desc" rows="8" cols="80" id="desc"></textarea>
+              <textarea onkeypress="quitarBorde(this)" name="name" rows="8" cols="80" id="desc"></textarea>
             </fieldset>
             <fieldset>
               <button type="submit" name="button">
@@ -74,7 +54,7 @@ include '../php/conexion.php';
         var inputs = document.querySelectorAll("fieldset > input, fieldset > textarea");
         var selects = document.querySelectorAll("fieldset > select");
         miForm.addEventListener("submit", function (e) {
-          for (let i = 0; i < inputs.length; i++) {
+          for (var i = 0; i < inputs.length; i++) {
             n = inputs[i];
             if(n.value.trim() == ''){
               n.style.border ="1px solid red";
