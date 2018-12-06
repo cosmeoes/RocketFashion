@@ -4,7 +4,7 @@ if(!isset($_SESSION['usario'])) {
   header('Location: ../login.php?error=acceso denegado');
 }
   include './conexion.php';
-if(isset($_POST['nombre']) && isset($_POST['precio'])  && isset($_POST['stock'])  && isset($_POST['cate'])  && isset($_POST['desc'])) {
+if(!empty($_POST['nombre']) && isset($_POST['precio'])  && isset($_POST['stock'])  && !empty($_POST['cate'])  && !empty($_POST['desc'])) {
   if(!is_numeric($_POST['stock']) || !is_numeric($_POST['precio'])) {
     header("Location: ../admin/productos.php?error=El stock y precio deben ser valores numericos");
     exit();
